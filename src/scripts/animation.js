@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 // Main entrance animation
 const tl = gsap.timeline({
   defaults: {
-    ease: "power3.out",
+    ease: "sine.out",
   },
 });
 
@@ -49,7 +49,7 @@ gsap.utils.toArray(".reveal").forEach((element) => {
     y: 35,
     opacity: 0,
     duration: 0.9,
-    ease: "power2.out",
+    ease: "sine.out",
     scrollTrigger: {
       trigger: element,
       start: "top 88%",
@@ -67,7 +67,7 @@ gsap.utils.toArray(".card-container").forEach((container) => {
     opacity: 0,
     duration: 0.8,
     stagger: 0.15,
-    ease: "power2.out",
+    ease: "sine.out",
     scrollTrigger: {
       trigger: container,
       start: "top 85%",
