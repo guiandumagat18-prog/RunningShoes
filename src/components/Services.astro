@@ -1,33 +1,117 @@
-<section id="services" class="py-32 bg-offwhite">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl font-bold mb-16 text-center font-Montserrat text-charcoal">
-      The STRYDE Advantage
-    </h2>
+---
+const services = [
+  {
+    number: "01",
+    title: "Frontend Development",
+    description:
+      "Building responsive and interactive interfaces using modern web technologies.",
+    image:
+      "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=900&q=85",
+    technologies: ["HTML", "CSS", "JavaScript"],
+  },
+  {
+    number: "02",
+    title: "Web Development",
+    description: "Creating structured, functional, and user-friendly websites.",
+    image:
+      "https://images.unsplash.com/photo-1547658719-da2b51169166?auto=format&fit=crop&w=900&q=85",
+    technologies: ["Astro", "Tailwind CSS"],
+  },
+  {
+    number: "03",
+    title: "Backend Development",
+    description:
+      "Working with application logic, server-side functionality, and data processing.",
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=900&q=85",
+    technologies: ["PHP", "JavaScript"],
+  },
+  {
+    number: "04",
+    title: "Database Management",
+    description:
+      "Organizing and managing application data through structured database systems.",
+    image:
+      "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&w=900&q=85",
+    technologies: ["MySQL", "SQL"],
+  },
+];
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-      <div class="text-center p-6">
-        <div class="text-2xl mb-4">⚡</div>
-        <h3 class="text-lg font-bold mb-2 text-charcoal">AeroFoam Tech</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">
-          Ultra-lightweight cushioning that returns 85% of energy with every
-          stride.
+const skills = [
+  ["HTML", "Website Structure"],
+  ["CSS", "Website Styling"],
+  ["JavaScript", "Programming"],
+  ["Astro", "Web Framework"],
+  ["Tailwind CSS", "Responsive UI"],
+  ["PHP", "Backend Programming"],
+  ["MySQL", "Database Management"],
+  ["Git & GitHub", "Version Control"],
+];
+---
+
+<section class="section services-section" id="services">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">02 / WHAT I CAN DO</span>
+        <h2>
+          MY <span>SKILLS.</span>
+          <br />
+          YOUR SOLUTIONS.
+        </h2>
+      </div>
+      <p>
+        My technical capabilities and programming knowledge help bring digital
+        ideas to life.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      {services.map((service) => (
+        <article class="service-card">
+          <div class="service-image">
+            <img src={service.image} alt={service.title} loading="lazy" />
+            <span class="service-number">{service.number} / SERVICE</span>
+          </div>
+
+          <div class="service-content">
+            <div class="service-icon">↗</div>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+
+            <div class="tag-list">
+              {service.technologies.map((technology) => (
+                <span>{technology}</span>
+              ))}
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="skills-panel">
+      <div class="skills-title">
+        <span class="eyebrow">MY TECHNICAL TOOLKIT</span>
+        <h3>Technologies I Work With.</h3>
+        <p>
+          Programming languages, frameworks, and tools used throughout my
+          development work.
         </p>
       </div>
-      <div class="text-center p-6 border-y md:border-y-0 md:border-x border-gray-200">
-        <div class="text-2xl mb-4">🛡️</div>
-        <h3 class="text-lg font-bold mb-2 text-charcoal">Carbon Plate</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">
-          A rigid propulsion plate designed to push you forward and reduce
-          fatigue.
-        </p>
-      </div>
-      <div class="text-center p-6">
-        <div class="text-2xl mb-4">🌬️</div>
-        <h3 class="text-lg font-bold mb-2 text-charcoal">BreezeKnit Upper</h3>
-        <p class="text-gray-500 text-sm leading-relaxed">
-          Breathable, adaptive mesh that locks down your foot without
-          restricting movement.
-        </p>
+
+      <div class="skills-grid">
+        {skills.map((skill, index) => (
+          <div class="skill-item">
+            <span class="skill-index">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <div>
+              <strong>{skill[0]}</strong>
+              <small>{skill[1]}</small>
+            </div>
+            <span class="skill-arrow">↗</span>
+          </div>
+        ))}
       </div>
     </div>
   </div>

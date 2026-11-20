@@ -1,94 +1,76 @@
-<section id="projects" class="py-32 bg-white">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="flex justify-between items-end mb-16">
-      <h2 class="text-3xl font-bold font-Montserrat text-charcoal">
-        The Lineup
-      </h2>
+---
+const projects = [
+  {
+    number: "01",
+    title: "STRYDE Website",
+    type: "STARTUP WEBSITE",
+    description:
+      "A shoe startup website developed with responsive layouts, modern web technologies, and interactive components.",
+    technologies: ["Astro", "HTML", "CSS", "JavaScript"],
+    image: "/Angular%20Black%20Speed%20Emblem.png",
+  },
+  {
+    number: "02",
+    title: "Responsive Web Interfaces",
+    type: "FRONTEND DEVELOPMENT",
+    description:
+      "Interface development focused on responsive layouts, reusable components, and user-friendly experiences.",
+    technologies: ["HTML", "CSS", "Tailwind CSS"],
+    image:
+      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1000&q=85",
+  },
+  {
+    number: "03",
+    title: "Database Applications",
+    type: "BACKEND DEVELOPMENT",
+    description:
+      "Programming practice involving structured data, database relationships, and application logic.",
+    technologies: ["PHP", "MySQL", "SQL"],
+    image:
+      "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1000&q=85",
+  },
+];
+---
 
-      <a
-        href="#"
-        class="text-sm font-medium border-b border-charcoal pb-1 hover:text-gray-500 transition-colors hidden md:block text-charcoal"
-      >
-        View All
-      </a>
+<section class="section projects-section" id="projects">
+  <div class="container">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">05 / SELECTED WORK</span>
+        <h2>
+          PROJECTS IN
+          <br />
+          <span>DEVELOPMENT.</span>
+        </h2>
+      </div>
+
+      <p>
+        A showcase of my development work, technical implementations, and
+        programming experience.
+      </p>
     </div>
 
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      <!-- Card 1: Velocity Pro -->
-      <div class="group cursor-pointer bg-offwhite rounded-2xl overflow-hidden border border-gray-100 transition-shadow hover:shadow-lg">
-        <div class="h-64 overflow-hidden relative bg-gray-100">
-          <img
-            src="https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQ9I6gQHtZXeLubwX989oFyMLKJynrCxD3Fty87Jm8BUbAoHnLgyuBmGjaH_-23rUUNDF9VQNi-1mbrXEykgTPIIt9-oKazF3VwNhiwA8m0RCp3QENm91Ae&usqp=CAc"
-            alt="Velocity Pro red performance running shoe"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-
-        <div class="p-6 flex justify-between items-start">
-          <div>
-            <h3 class="text-base font-bold text-charcoal">Velocity Pro</h3>
-            <p class="text-gray-500 text-sm mt-1">Carbon-plated</p>
+    <div class="projects-grid">
+      {projects.map((project) => (
+        <article class="project-card">
+          <div class="project-image">
+            <img src={project.image} alt={project.title} loading="lazy" />
+            <span class="project-count">{project.number}</span>
           </div>
-          <span class="text-base font-medium text-charcoal">₱8,500</span>
-        </div>
-      </div>
 
-      <!-- Card 2: Daily Trainer -->
-      <div class="group cursor-pointer bg-offwhite rounded-2xl overflow-hidden border border-gray-100 transition-shadow hover:shadow-lg">
-        <div class="h-64 overflow-hidden relative bg-gray-100">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_391LrTTRhgAkyf4z8hQxWduKJ7aZOwvdq-xBmpeD30_Ck0wPEbumCb6g&s=10"
-            alt="Daily Trainer comfortable athletic shoe"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-        </div>
+          <div class="project-details">
+            <span class="project-type">{project.type}</span>
+            <h3>{project.title}</h3>
+            <p>{project.description}</p>
 
-        <div class="p-6 flex justify-between items-start">
-          <div>
-            <h3 class="text-base font-bold text-charcoal">Daily Trainer</h3>
-            <p class="text-gray-500 text-sm mt-1">Max cushion</p>
+            <div class="tag-list">
+              {project.technologies.map((technology) => (
+                <span>{technology}</span>
+              ))}
+            </div>
           </div>
-          <span class="text-base font-medium text-charcoal">₱5,200</span>
-        </div>
-      </div>
-
-      <!-- Card 3: Trail Blazer -->
-      <div class="group cursor-pointer bg-offwhite rounded-2xl overflow-hidden border border-gray-100 transition-shadow hover:shadow-lg">
-        <div class="h-64 overflow-hidden relative bg-gray-100">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQm-T7SMnXqHS1PkfPx4OJw0O5_WqPAXF3Bj0S5dMl98w&s=10"
-            alt="Trail Blazer outdoor running shoe"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-
-        <div class="p-6 flex justify-between items-start">
-          <div>
-            <h3 class="text-base font-bold text-charcoal">Trail Blazer</h3>
-            <p class="text-gray-500 text-sm mt-1">Rugged grip</p>
-          </div>
-          <span class="text-base font-medium text-charcoal">₱6,000</span>
-        </div>
-      </div>
-
-      <!-- Card 4: Speed Elite -->
-      <div class="group cursor-pointer bg-offwhite rounded-2xl overflow-hidden border border-gray-100 transition-shadow hover:shadow-lg">
-        <div class="h-64 overflow-hidden relative bg-gray-100">
-          <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQms4JdaA-4QpWMuHZUayJ1bsRQ6BwcpAQlLLwJ0DwOEa_ewLs0Oc52lzbV&s=10"
-            alt="Speed Elite lightweight running shoe"
-            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
-        </div>
-
-        <div class="p-6 flex justify-between items-start">
-          <div>
-            <h3 class="text-base font-bold text-charcoal">Speed Elite</h3>
-            <p class="text-gray-500 text-sm mt-1">Track spikes</p>
-          </div>
-          <span class="text-base font-medium text-charcoal">₱4,500</span>
-        </div>
-      </div>
+        </article>
+      ))}
     </div>
   </div>
 </section>
