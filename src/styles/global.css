@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+/* This tells Tailwind v4 your custom brand colors */
+@theme {
+  --color-charcoal: #111111;
+  --color-offwhite: #FAFAFA;
+  --color-volt: #D4FF00;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-offwhite);
+  color: var(--color-charcoal);
+}
