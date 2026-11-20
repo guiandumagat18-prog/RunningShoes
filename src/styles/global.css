@@ -1133,3 +1133,21 @@ img {
     height: 36px;
   }
 }
+
+.hero-bg-image {
+  will-change: transform;
+}
+
+.hero-line {
+  display: block;
+  overflow: hidden;
+  will-change: transform, opacity;
+}
+
+.hero-title {
+  line-height: 0.95;
+}
+
+#replayBtn {
+  cursor: pointer;
+}
