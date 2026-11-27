@@ -7,7 +7,8 @@ const projects = [
     description:
       "A shoe startup website developed with responsive layouts, modern web technologies, and interactive components.",
     technologies: ["Astro", "HTML", "CSS", "JavaScript"],
-    image: "/Angular%20Black%20Speed%20Emblem.png",
+    image: "/stryde-team-photo.png",
+    imageAlt: "STRYDE team members in a computer lab",
   },
   {
     number: "02",
@@ -54,7 +55,11 @@ const projects = [
       {projects.map((project) => (
         <article class="project-card">
           <div class="project-image">
-            <img src={project.image} alt={project.title} loading="lazy" />
+            <img
+              src={project.image}
+              alt={project.imageAlt ?? project.title}
+              loading="lazy"
+            />
             <span class="project-count">{project.number}</span>
           </div>
 
