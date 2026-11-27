@@ -1,18 +1,33 @@
 import gsap from "gsap";
 
-let heroContext;
-let currentHero;
+let heroContext = null;
+let currentHero = null;
 
 function initHeroAnimation() {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-
   const hero = document.querySelector(".hero");
 
-  if (!hero || hero === currentHero) return;
+  // Stop if the hero section does not exist
+  if (!hero) {
+    heroContext?.revert();
+    heroContext = null;
+    currentHero = null;
+    return;
+  }
 
-  currentHero = hero;
+  // Prevent duplicate animations on the same hero
+  if (hero === currentHero) return;
+
+  // Clean up previous animations
   heroContext?.revert();
+  heroContext = null;
+  currentHero = hero;
 
+  // Respect reduced motion preferences
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  // Create a scoped GSAP context
   heroContext = gsap.context(() => {
     const timeline = gsap.timeline({
       defaults: {
@@ -20,81 +35,87 @@ function initHeroAnimation() {
       },
     });
 
-    timeline
-      .fromTo(
-        ".hero-bg-image",
-        {
-          scale: 1.15,
-        },
-        {
-          scale: 1,
-          duration: 2.5,
-          ease: "power2.out",
-        },
-        0,
-      )
+    // Background image animation
+    timeline.fromTo(
+      ".hero-bg-image",
+      {
+        scale: 1.15,
+      },
+      {
+        scale: 1,
+        duration: 2.5,
+        ease: "power2.out",
+      },
+      0
+    );
 
-      .from(
-        ".hero .absolute.inset-0 > div",
-        {
-          opacity: 0,
-          duration: 1.5,
-        },
-        0,
-      )
+    // Hero overlay animation
+    timeline.from(
+      ".hero .absolute.inset-0 > div",
+      {
+        opacity: 0,
+        duration: 1.5,
+      },
+      0
+    );
 
-      .from(
-        ".eyebrow",
-        {
-          y: 25,
-          opacity: 0,
-          duration: 0.8,
-        },
-        0.3,
-      )
+    // Small introductory text
+    timeline.from(
+      ".eyebrow",
+      {
+        y: 25,
+        opacity: 0,
+        duration: 0.8,
+      },
+      0.3
+    );
 
-      .from(
-        ".hero-line",
-        {
-          y: 80,
-          opacity: 0,
-          duration: 1,
-          stagger: 0.16,
-          ease: "power4.out",
-        },
-        0.5,
-      )
+    // Main heading animation
+    timeline.from(
+      ".hero-line",
+      {
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.16,
+        ease: "power4.out",
+      },
+      0.5
+    );
 
-      .from(
-        ".hero-description",
-        {
-          y: 30,
-          opacity: 0,
-          duration: 0.9,
-        },
-        "-=0.45",
-      )
+    // Description animation
+    timeline.from(
+      ".hero-description",
+      {
+        y: 30,
+        opacity: 0,
+        duration: 0.9,
+      },
+      "-=0.45"
+    );
 
-      .from(
-        ".hero-buttons > *",
-        {
-          y: 25,
-          opacity: 0,
-          duration: 0.7,
-          stagger: 0.15,
-        },
-        "-=0.4",
-      )
+    // Buttons animation
+    timeline.from(
+      ".hero-buttons > *",
+      {
+        y: 25,
+        opacity: 0,
+        duration: 0.7,
+        stagger: 0.15,
+      },
+      "-=0.4"
+    );
 
-      .from(
-        ".hero-bottom",
-        {
-          y: 20,
-          opacity: 0,
-          duration: 0.8,
-        },
-        "-=0.3",
-      );
+    // Bottom hero content
+    timeline.from(
+      ".hero-bottom",
+      {
+        y: 20,
+        opacity: 0,
+        duration: 0.8,
+      },
+      "-=0.3"
+    );
 
   }, hero);
 }
@@ -108,5 +129,5 @@ if (document.readyState === "loading") {
   initHeroAnimation();
 }
 
-// Astro page navigation support
+// Support Astro navigation
 document.addEventListener("astro:page-load", initHeroAnimation);

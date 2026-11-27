@@ -1,7 +1,4 @@
-<section
-  class="hero relative min-h-screen flex items-center justify-center pt-20 overflow-hidden"
-  id="home"
->
+<section class="hero" id="home">
   <div class="absolute inset-0">
     <img
       src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=1920&q=90"
@@ -11,26 +8,23 @@
     <div class="absolute inset-0 bg-black/65"></div>
   </div>
 
-
-  <div class="relative z-10 text-center px-6 max-w-5xl mx-auto hero-content">
-    <span class="eyebrow inline-flex items-center gap-3 text-sm tracking-widest text-gray-200 mb-8">
+  <div class="hero-content">
+    <span class="eyebrow">
       <span class="status-dot"></span>
       STRYDE • TECHNOLOGY • DEVELOPMENT
     </span>
 
-    <h1 class="hero-title text-6xl md:text-8xl font-black tracking-tighter mb-8 uppercase text-white">
-      <span class="hero-line">BUILT WITH</span>
-      <span class="hero-line text-gray-400">CODE.</span>
-      <span class="hero-line">DRIVEN BY</span>
-      <span class="hero-line">INNOVATION.</span>
+    <h1 class="hero-title">
+      <span class="hero-line">BUILT WITH CODE.</span>
+      <span class="hero-line text-gray-400">DRIVEN BY INNOVATION.</span>
     </h1>
 
-    <p class="text-lg md:text-xl text-gray-200 mb-12 max-w-2xl mx-auto font-light hero-description">
+    <p class="hero-description">
       STRYDE combines footwear, creativity, and technology. Discover the
       programming and development behind our digital experience.
     </p>
 
-    <div class="flex flex-col sm:flex-row gap-4 justify-center hero-buttons">
+    <div class="hero-buttons">
       <a
         href="#projects"
         class="border border-white/70 text-white px-8 py-4 rounded-full font-medium hover:bg-white hover:text-black transition-colors"
@@ -46,18 +40,11 @@
       </a>
     </div>
 
-    <div class="mt-16 text-xs tracking-widest text-gray-300 hero-bottom">
+    <div class="hero-bottom">
       <span>DESIGNING. DEVELOPING. IMPROVING.</span>
     </div>
   </div>
 
-
-  <div class="absolute bottom-0 left-0 w-full overflow-hidden border-t border-white/20 py-4 text-white text-sm tracking-widest">
-    <div class="whitespace-nowrap animate-marquee">
-      PROGRAMMING ✳ DEVELOPMENT ✳ TECHNOLOGY ✳ INNOVATION ✳ PROGRAMMING ✳
-      DEVELOPMENT ✳ TECHNOLOGY ✳ INNOVATION ✳
-    </div>
-  </div>
 </section>
 
 <style>
@@ -70,23 +57,4 @@
     box-shadow: 0 0 12px #c6ff00;
   }
 
-  .animate-marquee {
-    display: inline-block;
-    animation: marquee 25s linear infinite;
-  }
-
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .animate-marquee {
-      animation: none;
-    }
-  }
 </style>
